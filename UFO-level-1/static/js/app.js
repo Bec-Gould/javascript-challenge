@@ -17,3 +17,29 @@ tableData.forEach(function(Sighting) {
         cell.text(value);
     });
 });
+
+
+var button = d3.select("#filter-btn");
+var form = d3.select("#filters");
+
+button.on("click", runEnter);
+button.on("submit", runEnter);
+
+function runEnter() {
+
+    d3.event.preventDefault();
+
+    var inputElement = d3.select("#datetime");
+
+    var inputValue = inputElement.property("value");
+
+    console.log(inputValue);
+    // console.log(tableData);
+
+    var filteredData = tableData.filter(tableData => tableData.datetime === inputValue);
+
+    console.log(filteredData);
+
+}
+
+console.log("hello world");
